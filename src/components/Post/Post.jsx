@@ -1,16 +1,17 @@
 import {Link} from 'react-router-dom'
+import AppImage from '../AppImage/AppImage.jsx'
 import CommentSection from '../CommentSection/CommentSection.jsx'
 import PostActions from '../PostActions/PostActions.jsx'
 
 const Post = ({post}) => (
   <article className="post-card">
     <div className="post-user-row">
-      <img src={post.profile_pic} alt={`${post.user_name} profile`} />
+      <AppImage src={post.profile_pic} alt={`${post.user_name} profile`} fallbackVariant="avatar" />
       <Link to={`/users/${post.user_id}`} className="post-username">
         {post.user_name}
       </Link>
     </div>
-    <img src={post.post_details?.image_url} alt="post" className="post-image" />
+    <AppImage src={post.post_details?.image_url} alt="post" className="post-image" />
     <div className="post-body">
       <PostActions postId={post.post_id} initialLikes={post.likes_count} />
       <p className="post-caption">{post.post_details?.caption}</p>

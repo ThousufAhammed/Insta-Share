@@ -1,4 +1,5 @@
 import {BiCamera} from 'react-icons/bi'
+import AppImage from '../AppImage/AppImage.jsx'
 
 const normalizeProfile = profile => ({
   id: profile.id || profile.user_id,
@@ -19,7 +20,7 @@ const Profile = ({profile, title}) => {
   return (
     <section className="profile-layout">
       <div className="profile-header">
-        <img src={user.profilePic} alt={user.userName} className="profile-avatar" />
+        <AppImage src={user.profilePic} alt={user.userName} className="profile-avatar" fallbackVariant="avatar" />
         <div className="profile-info">
           <h1>{title || user.userName}</h1>
           <div className="profile-stats">
@@ -41,7 +42,7 @@ const Profile = ({profile, title}) => {
       {user.stories.length > 0 && (
         <div className="profile-stories">
           {user.stories.map(story => (
-            <img key={story.id} src={story.image} alt="user story" />
+            <AppImage key={story.id} src={story.image} alt="user story" fallbackVariant="avatar" />
           ))}
         </div>
       )}
@@ -55,7 +56,7 @@ const Profile = ({profile, title}) => {
       ) : (
         <div className="posts-grid">
           {user.posts.map(post => (
-            <img key={post.id} src={post.image} alt="user post" />
+            <AppImage key={post.id} src={post.image} alt="user post" />
           ))}
         </div>
       )}

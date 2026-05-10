@@ -4,6 +4,7 @@ import {Navigate, useNavigate} from 'react-router-dom'
 import {cookieName, images} from '../../utils/constants.js'
 import {getJwtToken, loginUser} from '../../utils/api.js'
 import {demoCredentials} from '../../utils/mockApi.js'
+import AppImage from '../AppImage/AppImage.jsx'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('')
@@ -40,7 +41,12 @@ const LoginForm = () => {
   return (
     <main className="login-page">
       <section className="login-hero">
-        <img src={images.login} alt="website login" className="login-illustration" />
+        <AppImage
+          src={images.login}
+          alt="website login"
+          className="login-illustration"
+          fallbackVariant="illustration"
+        />
       </section>
       <form className="login-card" onSubmit={onSubmit}>
         <div className="app-logo login-logo" role="img" aria-label="website logo">

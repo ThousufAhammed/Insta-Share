@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import {apiStatusConstants, images} from '../../utils/constants.js'
 import {fetchWithAuth} from '../../utils/api.js'
+import AppImage from '../AppImage/AppImage.jsx'
 import FailureView from '../FailureView/FailureView.jsx'
 import LoaderView from '../LoaderView/LoaderView.jsx'
 import Post from '../Post/Post.jsx'
@@ -36,7 +37,7 @@ const PostsList = ({search = ''}) => {
   if (apiStatus === apiStatusConstants.success && posts.length === 0 && search) {
     return (
       <section className="empty-search">
-        <img src={images.searchNotFound} alt="search not found" />
+        <AppImage src={images.searchNotFound} alt="search not found" fallbackVariant="illustration" />
         <h1>Search Not Found</h1>
         <p>Try different keywords or search again.</p>
       </section>
